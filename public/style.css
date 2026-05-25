@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --surface2: #1c1c28;
+  --accent: #6C63FF;
+  --accent2: #ff6b9d;
+  --text: #e8e8f0;
+  --muted: #6b6b8a;
+  --border: rgba(108,99,255,0.15);
+  --glow: 0 0 20px rgba(108,99,255,0.3);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Убираем chainlit-логотип и ридми */
+.watermark, [class*="watermark"], a[href*="chainlit"] { display: none !important; }
+
+/* Шапка */
+header, [class*="header"] {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* Заголовок */
+header h1, header [class*="title"] {
+  font-family: 'Space Mono', monospace !important;
+  letter-spacing: -0.02em !important;
+  background: linear-gradient(135deg, #6C63FF, #ff6b9d) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Область сообщений */
+[class*="messages-container"], [class*="MessageList"] {
+  background: var(--bg) !important;
+}
+
+/* Карточки сообщений */
+[class*="message"], .message {
+  border-radius: 12px !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Пузырь ассистента */
+[class*="assistant"] [class*="message-content"],
+[class*="ai"] [class*="content"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px 16px 16px 4px !important;
+}
+
+/* Пузырь пользователя */
+[class*="user"] [class*="message-content"],
+[class*="human"] [class*="content"] {
+  background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(255,107,157,0.1)) !important;
+  border: 1px solid rgba(108,99,255,0.3) !important;
+  border-radius: 16px 16px 4px 16px !important;
+}
+
+/* Инпут */
+[class*="input"], textarea, input[type="text"] {
+  background: var(--surface2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+[class*="input"]:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--glow) !important;
+  outline: none !important;
+}
+
+/* Кнопка отправки */
+button[type="submit"], [class*="send-button"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  transition: opacity 0.2s, transform 0.1s !important;
+}
+button[type="submit"]:hover { opacity: 0.9 !important; transform: scale(1.03) !important; }
+
+/* Кнопки действий (агенты) */
+[class*="action-button"], button[class*="action"] {
+  background: var(--surface2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+  transition: all 0.2s !important;
+}
+[class*="action-button"]:hover {
+  border-color: var(--accent) !important;
+  background: rgba(108,99,255,0.15) !important;
+  box-shadow: var(--glow) !important;
+}
+
+/* Разделитель метаданных в конце ответа */
+[class*="message-content"] hr {
+  border: none !important;
+  border-top: 1px solid var(--border) !important;
+  margin: 12px 0 8px !important;
+}
+
+/* Инлайн-код (метаданные) */
+[class*="message-content"] code {
+  background: rgba(108,99,255,0.15) !important;
+  color: #a89fff !important;
+  border-radius: 4px !important;
+  padding: 1px 6px !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+}
+
+/* Сайдбар */
+[class*="sidebar"], aside {
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Анимация появления сообщений */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+[class*="message"] { animation: fadeUp 0.25s ease; }

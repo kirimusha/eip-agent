@@ -1,0 +1,47 @@
+services:
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    restart: always
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+  ollama-init:
+    image: curlimages/curl:latest
+    container_name: ollama_init
+    depends_on:
+      ollama:
+        condition: service_healthy
+    # Ждём готовности и делаем pull через API
+    entrypoint: >
+      sh -c "
+        echo 'Ollama готова, скачиваем модель...' &&
+        curl -s http://ollama:11434/api/pull -d '{\"name\":\"qwen2.5:7b\"}' &&
+        echo 'Готово!'
+      "
+    restart: no
+
+  web-agent:
+    build: .
+    container_name: eip_chainlit_agent
+    ports:
+      - "8000:8000"
+    restart: on-failure
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_MODEL=qwen2.5:7b
+      - OLLAMA_BASE_URL=http://ollama:11434/v1
+
+volumes:
+  ollama_data:
