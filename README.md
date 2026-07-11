@@ -10,7 +10,6 @@
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 
 </div>
----
 
 ## 📖 Описание
 
