@@ -1,22 +1,21 @@
 # eip-agent
 
-<img width="1512" height="916" alt="image" src="https://github.com/user-attachments/assets/2eded2a1-8855-4661-83ec-b50bcdbf4dd5" />
-
-<img width="1280" height="775" alt="telegram-cloud-photo-size-2-5235959596965370646-y" src="https://github.com/user-attachments/assets/eff36294-dd8b-4ad7-a83b-396a88c910df" />
-
-<img width="1280" height="813" alt="telegram-cloud-photo-size-2-5233388745506101361-y" src="https://github.com/user-attachments/assets/95355ec4-c442-47cf-925f-d1bfb5ed3172" />
+**ИИ-ассистент с локальным запуском на базе Qwen 2.5, LangChain и Chainlit**
 
 <div align="center">
-
-**ИИ-ассистент с локальным запуском на базе Qwen 2.5, LangChain и Chainlit**
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
 ![Chainlit](https://img.shields.io/badge/Chainlit-2.5.5-orange)
 ![LangChain](https://img.shields.io/badge/LangChain-0.2.17-1C3C3C)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 </div>
+
+<img width="1512" height="916" alt="image" src="https://github.com/user-attachments/assets/2eded2a1-8855-4661-83ec-b50bcdbf4dd5" />
+
+<img width="1280" height="775" alt="telegram-cloud-photo-size-2-5235959596965370646-y" src="https://github.com/user-attachments/assets/eff36294-dd8b-4ad7-a83b-396a88c910df" />
+
+<img width="1280" height="813" alt="telegram-cloud-photo-size-2-5233388745506101361-y" src="https://github.com/user-attachments/assets/95355ec4-c442-47cf-925f-d1bfb5ed3172" />
 
 ---
 
@@ -134,7 +133,3 @@ docker compose down -v
 
 - **web_search** — поиск актуальной информации в интернете через DuckDuckGo
 - **calculator** — безопасное вычисление математических выражений
-
-## 📄 Лицензия
-
-Проект распространяется под лицензией [MIT](LICENSE).
